@@ -28,11 +28,11 @@ namespace SchoolManagement
             con.Open();
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            SqlCommand cnn = new SqlCommand("select username, password from login where username='" + txtUsername.Text + "' and password='" + txtPassword.Text + "'",con);
+            SqlCommand cnn = new SqlCommand("select username, password from login where username='" + txtUsername.Text + "' and password='" + txtPassword.Text + "'", con);
             SqlDataAdapter da = new SqlDataAdapter(cnn);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            if(dt.Rows.Count > 0 )
+            if (dt.Rows.Count > 0)
             {
                 Main mn = new Main();
                 mn.Show();
@@ -42,6 +42,11 @@ namespace SchoolManagement
                 MessageBox.Show("Invalid Username or Password");
             }
             con.Close();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
