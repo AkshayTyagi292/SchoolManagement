@@ -224,13 +224,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1061, 689);
+            ClientSize = new Size(1061, 695);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
             Name = "Attendance";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Attendance";
+            Load += Attendance_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);

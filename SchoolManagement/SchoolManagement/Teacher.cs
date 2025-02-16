@@ -101,5 +101,16 @@ namespace SchoolManagement
         {
 
         }
+
+        private void Teacher_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
+            con.Open();
+            SqlCommand cnn = new SqlCommand("select * from  TeacherTable", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn);
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
+        }
     }
 }

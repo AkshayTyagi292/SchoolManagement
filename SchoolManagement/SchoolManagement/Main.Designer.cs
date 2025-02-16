@@ -102,7 +102,7 @@
             button6.Name = "button6";
             button6.Size = new Size(194, 44);
             button6.TabIndex = 5;
-            button6.Text = "Attendace";
+            button6.Text = "Attendance";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 

@@ -47,7 +47,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(835, 86);
+            panel1.Size = new Size(793, 56);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -55,7 +55,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(314, 24);
+            label1.Location = new Point(314, 9);
             label1.Name = "label1";
             label1.Size = new Size(186, 38);
             label1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(288, 154);
+            label2.Location = new Point(364, 108);
             label2.Name = "label2";
             label2.Size = new Size(86, 20);
             label2.TabIndex = 1;
@@ -74,10 +74,10 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.login_icon_png_27;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Location = new Point(12, 102);
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(97, 71);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(243, 241);
+            pictureBox1.Size = new Size(217, 209);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -85,7 +85,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(288, 197);
+            label3.Location = new Point(364, 154);
             label3.Name = "label3";
             label3.Size = new Size(83, 20);
             label3.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
             txtUsername.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(393, 152);
+            txtUsername.Location = new Point(488, 106);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(161, 27);
             txtUsername.TabIndex = 4;
@@ -105,8 +105,9 @@
             // 
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
             txtPassword.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(393, 195);
+            txtPassword.Location = new Point(488, 152);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(161, 27);
             txtPassword.TabIndex = 5;
             txtPassword.TextChanged += txtPassword_TextChanged;
@@ -114,7 +115,7 @@
             // btnLogin
             // 
             btnLogin.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogin.Location = new Point(387, 258);
+            btnLogin.Location = new Point(448, 212);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(113, 37);
             btnLogin.TabIndex = 6;
@@ -126,7 +127,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(835, 425);
+            ClientSize = new Size(793, 302);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
@@ -136,7 +137,7 @@
             Controls.Add(panel1);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
+            Text = "s";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

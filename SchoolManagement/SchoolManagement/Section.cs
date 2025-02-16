@@ -27,9 +27,9 @@ namespace SchoolManagement
         {
             SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
             con.Open();
-            SqlCommand cnn = new SqlCommand("Insert into SectionTable values(@sectionid, @sectionname, @section)", con);
+            SqlCommand cnn = new SqlCommand("Insert into SectionTable values(@sectionid, @studentname, @section)", con);
             cnn.Parameters.AddWithValue("@SectionId", int.Parse(textBox1.Text));
-            cnn.Parameters.AddWithValue("@SectionName", (textBox2.Text));
+            cnn.Parameters.AddWithValue("@StudentName", (textBox2.Text));
             cnn.Parameters.AddWithValue("@Section", (textBox3.Text));
             cnn.ExecuteNonQuery();
             con.Close();
@@ -48,9 +48,9 @@ namespace SchoolManagement
         {
             SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
             con.Open();
-            SqlCommand cnn = new SqlCommand("Update SectionTable set sectionname=@sectionname , section=@section where sectionid=@sectionid", con);
+            SqlCommand cnn = new SqlCommand("Update SectionTable set studentname=@studentname , section=@section where sectionid=@sectionid", con);
             cnn.Parameters.AddWithValue("@SectionId", int.Parse(textBox1.Text));
-            cnn.Parameters.AddWithValue("@SectionName", (textBox2.Text));
+            cnn.Parameters.AddWithValue("@StudentName", (textBox2.Text));
             cnn.Parameters.AddWithValue("@Section", (textBox3.Text));
             cnn.ExecuteNonQuery();
             con.Close();
@@ -94,6 +94,17 @@ namespace SchoolManagement
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Section_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
+            con.Open();
+            SqlCommand cnn = new SqlCommand("select * from  SectionTable", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn);
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
         }
     }
 }

@@ -56,9 +56,9 @@ namespace SchoolManagement
         {
             SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
             con.Open();
-            SqlCommand cnn = new SqlCommand("Update EnrollTable set studentname=@studentname, section=@section, enrolldate=@enrolldate where enrollid=@enrollid", con);
+            SqlCommand cnn = new SqlCommand("Update EnrollTable set studentname=@studentname, section=@section, enrolldate=@enrolldate where enrollmentid=@enrollmentid", con);
 
-            cnn.Parameters.AddWithValue("@EnrollId", int.Parse(textBox1.Text));
+            cnn.Parameters.AddWithValue("@EnrollmentId", int.Parse(textBox1.Text));
             cnn.Parameters.AddWithValue("@StudentName", (textBox2.Text));
             cnn.Parameters.AddWithValue("@Section", (textBox3.Text));
             cnn.Parameters.AddWithValue("@EnrollDate", dateTimePicker1.Value);
@@ -100,6 +100,17 @@ namespace SchoolManagement
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
+        }
+
+        private void Enrollment_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
+            con.Open();
+            SqlCommand cnn = new SqlCommand("select * from  EnrollTable", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn);
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
         }
     }
 }

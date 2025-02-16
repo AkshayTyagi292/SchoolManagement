@@ -55,7 +55,8 @@ namespace SchoolManagement
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            Dashboard ds = new Dashboard();
+            ds.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -248,13 +248,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1074, 689);
+            ClientSize = new Size(1074, 731);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
             Name = "Teacher";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Teacher";
+            Load += Teacher_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -197,9 +197,9 @@
             label6.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(64, 144);
             label6.Name = "label6";
-            label6.Size = new Size(122, 22);
+            label6.Size = new Size(124, 22);
             label6.TabIndex = 4;
-            label6.Text = "Section Name";
+            label6.Text = "Student Name";
             // 
             // label2
             // 
@@ -232,6 +232,7 @@
             Name = "Section";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Section";
+            Load += Section_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox1.ResumeLayout(false);
