@@ -56,21 +56,17 @@ namespace SchoolManagement
             cnn.Parameters.AddWithValue("@Email", (textBox5.Text));
             cnn.ExecuteNonQuery();
             con.Close();
-            MessageBox.Show("Record Saved Successfully", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
-            con.Open();
-            SqlCommand cnn = new SqlCommand("select * from  StudentTable", con);
-            SqlDataAdapter da = new SqlDataAdapter(cnn);
+            SqlCommand cnn2 = new SqlCommand("select * from  StudentTable", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn2);
             DataTable table = new DataTable();
             da.Fill(table);
             dataGridView1.DataSource = table;
 
+            MessageBox.Show("Record Saved Successfully", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
+        
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -85,6 +81,13 @@ namespace SchoolManagement
             cnn.Parameters.AddWithValue("@Email", (textBox5.Text));
             cnn.ExecuteNonQuery();
             con.Close();
+
+            SqlCommand cnn2 = new SqlCommand("select * from  StudentTable", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn2);
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
+
             MessageBox.Show("Record Updated Successfully", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -97,7 +100,15 @@ namespace SchoolManagement
             cnn.Parameters.AddWithValue("@StudentId", int.Parse(textBox1.Text));
             cnn.ExecuteNonQuery();
             con.Close();
+
+            SqlCommand cnn2 = new SqlCommand("select * from  StudentTable", con);
+            SqlDataAdapter da = new SqlDataAdapter(cnn2);
+            DataTable table = new DataTable();
+            da.Fill(table);
+            dataGridView1.DataSource = table;
+
             MessageBox.Show("Record Deleted Successfully", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
         }
 
@@ -109,17 +120,6 @@ namespace SchoolManagement
             textBox4.Text = "";
             textBox5.Text = "";
 
-        }
-
-        private void btnDisplay_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
-            con.Open();
-            SqlCommand cnn = new SqlCommand("select * from  StudentTable", con);
-            SqlDataAdapter da = new SqlDataAdapter(cnn);
-            DataTable table = new DataTable();
-            da.Fill(table);
-            dataGridView1.DataSource = table;
         }
 
 

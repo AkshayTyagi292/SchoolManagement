@@ -49,7 +49,8 @@ namespace SchoolManagement
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            Attendance at = new Attendance();
+            at.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -67,6 +68,24 @@ namespace SchoolManagement
         {
             Subject sj = new Subject();
             sj.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Teacher tt = new Teacher();
+            tt.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Section se = new Section();
+            se.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Enrollment et = new Enrollment();
+            et.Show();
         }
     }
 }

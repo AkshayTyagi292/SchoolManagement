@@ -7,44 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.Data.SqlClient;
 
 namespace SchoolManagement
 {
-    public partial class Subject : Form
+    public partial class Enrollment : Form
     {
-        public Subject()
+        public Enrollment()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -53,13 +33,16 @@ namespace SchoolManagement
         {
             SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
             con.Open();
-            SqlCommand cnn = new SqlCommand("Insert into SubjectTable values(@subjectid, @subjectname)", con);
-            cnn.Parameters.AddWithValue("@SubjectId", int.Parse(textBox1.Text));
-            cnn.Parameters.AddWithValue("@SubjectName", (textBox2.Text));
+            SqlCommand cnn = new SqlCommand("Insert into EnrollTable values(@enrollmentid, @studentname, @section, @enrolldate)", con);
+            cnn.Parameters.AddWithValue("@EnrollmentId", int.Parse(textBox1.Text));
+            cnn.Parameters.AddWithValue("@StudentName", (textBox2.Text));
+            cnn.Parameters.AddWithValue("@Section", (textBox3.Text));
+            cnn.Parameters.AddWithValue("@EnrollDate", dateTimePicker1.Value);
+
             cnn.ExecuteNonQuery();
             con.Close();
 
-            SqlCommand cnn2 = new SqlCommand("select * from  SubjectTable", con);
+            SqlCommand cnn2 = new SqlCommand("select * from  EnrollTable", con);
             SqlDataAdapter da = new SqlDataAdapter(cnn2);
             DataTable table = new DataTable();
             da.Fill(table);
@@ -73,13 +56,17 @@ namespace SchoolManagement
         {
             SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
             con.Open();
-            SqlCommand cnn = new SqlCommand("Update SubjectTable set subjectname=@subjectname where subjectid=@subjectid", con);
-            cnn.Parameters.AddWithValue("@SubjectId", int.Parse(textBox1.Text));
-            cnn.Parameters.AddWithValue("@SubjectName", (textBox2.Text));
+            SqlCommand cnn = new SqlCommand("Update EnrollTable set studentname=@studentname, section=@section, enrolldate=@enrolldate where enrollid=@enrollid", con);
+
+            cnn.Parameters.AddWithValue("@EnrollId", int.Parse(textBox1.Text));
+            cnn.Parameters.AddWithValue("@StudentName", (textBox2.Text));
+            cnn.Parameters.AddWithValue("@Section", (textBox3.Text));
+            cnn.Parameters.AddWithValue("@EnrollDate", dateTimePicker1.Value);
+
             cnn.ExecuteNonQuery();
             con.Close();
 
-            SqlCommand cnn2 = new SqlCommand("select * from  SubjectTable", con);
+            SqlCommand cnn2 = new SqlCommand("select * from  EnrollTable", con);
             SqlDataAdapter da = new SqlDataAdapter(cnn2);
             DataTable table = new DataTable();
             da.Fill(table);
@@ -93,12 +80,12 @@ namespace SchoolManagement
         {
             SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
             con.Open();
-            SqlCommand cnn = new SqlCommand("Delete SubjectTable where subjectid=@subjectid", con);
-            cnn.Parameters.AddWithValue("@SubjectId", int.Parse(textBox1.Text));
+            SqlCommand cnn = new SqlCommand("Delete EnrollTable where enrollid=@enrollid ", con);
+            cnn.Parameters.AddWithValue("@EnrollId", int.Parse(textBox1.Text));
             cnn.ExecuteNonQuery();
             con.Close();
 
-            SqlCommand cnn2 = new SqlCommand("select * from  SubjectTable", con);
+            SqlCommand cnn2 = new SqlCommand("select * from  EnrollTable", con);
             SqlDataAdapter da = new SqlDataAdapter(cnn2);
             DataTable table = new DataTable();
             da.Fill(table);
@@ -112,17 +99,7 @@ namespace SchoolManagement
         {
             textBox1.Text = "";
             textBox2.Text = "";
-        }
-
-        private void Subject_Load(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(@"Data Source = ASUS\SQLEXPRESS; Initial Catalog = schooldb; Integrated Security = True; Encrypt = False");
-            con.Open();
-            SqlCommand cnn = new SqlCommand("select * from  SubjectTable", con);
-            SqlDataAdapter da = new SqlDataAdapter(cnn);
-            DataTable table = new DataTable();
-            da.Fill(table);
-            dataGridView1.DataSource = table;
+            textBox3.Text = "";
         }
     }
 }
